@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+  .wrapper {
+    display: table;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    background: #ccc;
+  }
+  .content {
+    display: table-row;
+    height: 100%;
+  }
+
+  .footer{
+      height: 70px;
+      background: blue;
+  }
+
+  .container{
+      width: 1170px;
+      margin: 0 auto;
+      box-sizing: border-box;
+  }
+
+  .copy{
+    display: flex;
+    align-items:center;
+    height: 70px;
+  }
+
+  .copy p{
+      color:#fff;
+      font-size: 14px;
+  }
+
+  .select-box {
+    margin: 40px 0;
+    overflow: hidden;
+}
+
+  .select{
+    cursor: pointer;
+    outline: none;
+    width: 180px;
+    padding: 0 5px;
+    height: 30px;
+  }
+  .select>option{
+    display: block;
+    height: 30px;
+    padding: 10px 5px; 
+  }
+
+  .select-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .select-list>li {
+    float: left;
+    margin: 0 25px 0 0;
+  }
+
+  .result-box{
+    overflow: hidden;
+  }
+
+  .result-box h1{
+    color:rgb(41, 88, 190);
+    padding: 10px 0;
+  }
+
+  .button{
+    cursor: pointer;
+    background: blue;
+    color:#fff;
+    outline: none;
+    font-weight: bold;
+    border: none;
+    width: 100px;
+    height: 30px;
+  }
+
+  .button:hover{
+    background: rgb(60, 60, 226);
+  }

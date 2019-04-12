@@ -1,0 +1,59 @@
+{	"colvoVertex":6,
+	"graph": 
+	[
+		{
+			"vertex1": 1,
+			"vertex2": 2,
+			"distance": 7
+		},
+
+		{
+			"vertex1": 1,
+			"vertex2": 3,
+			"distance": 9
+		},
+
+		{
+			"vertex1": 1,
+			"vertex2": 6,
+			"distance": 14
+		},
+
+		{
+			"vertex1": 2,
+			"vertex2": 3,
+			"distance": 10
+		},
+
+		{
+			"vertex1": 2,
+			"vertex2": 4,
+			"distance": 15
+		},
+
+		{
+			"vertex1": 3,
+			"vertex2": 4,
+			"distance": 11
+		},
+
+		{
+			"vertex1": 3,
+			"vertex2": 6,
+			"distance": 2
+		},
+
+		{
+			"vertex1": 4,
+			"vertex2": 5,
+			"distance": 6
+		},
+
+		{
+			"vertex1": 5,
+			"vertex2": 6,
+			"distance": 9
+		}
+
+	]
+}
