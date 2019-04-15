@@ -6,16 +6,21 @@ function print_arr($arr){
 }
 
 $result=null;
-$jobj = file_get_contents( __DIR__ . DIRECTORY_SEPARATOR . 'graph.json' ); // в примере все файлы в корне
+$jobj = file_get_contents( __DIR__ . DIRECTORY_SEPARATOR . 'graph.json' ); 
 $data = json_decode($jobj); 
 $start = 1;
 $end = 1;
 
-if($_GET['start'] && $_GET['end']){
+if(!empty($_GET['start']) && !empty($_GET['end'])){
     $start = $_GET['start'];
     $end = $_GET['end'];
+}
 
-    $graf = $data;
+
+
+
+
+ $graf = $data;
     $pointer = $graf->graph;
     $arrlen = count($pointer);
     //массив контенер
@@ -67,23 +72,24 @@ if($_GET['start'] && $_GET['end']){
 
      $queueEnd = [];
      array_push($queueEnd, $vEnd);
-     $end = $vEnd;
+     $endV = $vEnd;
+
      $weight = $dist[$vEnd];
      $ver = []; // массив посещенных вершин
-     $ver[0] = $end; // начальный элемент - конечная вершина
+     $ver[0] = $endV; // начальный элемент - конечная вершина
      $k = 1; // индекс предыдущей вершины
 
      while(!empty($queueEnd)){
         $vert = array_shift($queueEnd);
         for($i1=1; $i1<$arrlen; $i1++) // просматриваем все вершины
-            if ($v[$end][$i1] != 0)// если связь есть
+            if ($v[$endV][$i1] != 0)// если связь есть
                 {
                     $tempVert = $weight - $v[$end][$i1]; // определяем вес пути из предыдущей вершины
                     if ($tempVert == $dist[$i1]) // если вес совпал с рассчитанным
                         {                 // значит из этой вершины и был переход
                           //  console.log(i1)
                             $weight = $tempVert; // сохраняем новый вес
-                            $end = $i1;//заменяем вершину
+                            $endV = $i1;//заменяем вершину
                             array_push($queueEnd,$i1);
                             $ver[$k] = $i1; // и записываем ее в массив
                             $k++;
@@ -99,11 +105,9 @@ if($_GET['start'] && $_GET['end']){
      }
      
      $result = ' Кратчайший путь от вершины ' . $vStart .' до '. $vEnd .': ' . $res.' Общий вес пути:' . $dist[$vEnd];
-    
-
-}
 
 
+//вывод в селекторы
 $temp = [];
 
 foreach($data->graph as $valueObj)
@@ -146,6 +150,8 @@ $result = $result == null ? 'Здесь будет выведен результ
 
                                 <li>
                                     <select name="start" class="select">
+                                        <option selected="selected"><?php echo $start; ?></option>
+
                                         <?foreach($temp as $key):  ?>
                                             <option><?=$temp[$key]?></option>
                                         <?endforeach?>
@@ -154,6 +160,8 @@ $result = $result == null ? 'Здесь будет выведен результ
 
                                 <li>
                                     <select name="end" class="select">
+                                        <option selected="selected"><?php echo $end; ?></option>
+
                                         <?foreach($temp as $key):  ?>
                                             <option><?=$temp[$key]?></option>
                                         <?endforeach?>
